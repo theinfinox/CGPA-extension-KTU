@@ -247,6 +247,7 @@ This extension:
 # 📈 Supported
 
 - KTU 2019 Scheme
+- KTU 2024 Scheme ( Useful for downloading Data for those who dont have arrears yet, Heh!!! )
 - Multiple Semesters
 - Backlog Analysis
 - SGPA Calculation
