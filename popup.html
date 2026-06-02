@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>KTU CGPA</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+<style>
+:root{
+
+    --bg:#fff8f0;
+
+    --pink:#ffb3d9;
+    --purple:#d7b3ff;
+    --yellow:#ffe680;
+    --green:#c9ffb3;
+    --blue:#b3e5ff;
+
+    --black:#111;
+}
+
+body{
+    width:620px;
+    min-height:600px;
+
+    background:var(--bg);
+
+    font-family:"Space Grotesk",sans-serif;
+
+    padding:14px;
+
+    overflow-x:hidden;
+
+    margin:0;
+
+    scroll-behavior:smooth;
+}
+
+.hero{
+
+background:
+linear-gradient(
+135deg,
+#ffb3d9,
+#d7b3ff
+);
+
+
+    border:4px solid var(--black);
+
+    border-radius:24px;
+
+    padding:16px;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    text-align:center;
+
+    box-shadow:7px 7px 0 var(--black);
+
+    margin-bottom:8px;
+
+        font-family:"Fredoka",sans-serif;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    font-size:12px;
+
+    margin-bottom:16px;
+
+    opacity:.8;
+}
+
+button{
+
+    width:100%;
+
+    border:4px solid black;
+
+    background:var(--yellow);
+
+    border-radius:18px;
+
+    padding:12px;
+
+    font-weight:700;
+
+    margin-bottom:16px;
+
+    box-shadow:5px 5px 0 black;
+
+    cursor:pointer;
+}
+
+button:hover{
+
+    transform:
+        translate(-2px,-2px);
+
+    box-shadow:
+        7px 7px 0 black;
+}
+
+button:active{
+    transform:translate(2px,2px);
+
+    box-shadow:2px 2px 0 black;
+}
+
+#stats{
+
+    margin-bottom:16px;
+}
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:12px;
+}
+
+.stat-card{
+
+    border:4px solid black;
+
+    border-radius:18px;
+
+    padding:12px;
+
+    text-align:center;
+
+    box-shadow:5px 5px 0 black;
+}
+
+.value{
+
+    font-size:22px;
+
+    font-weight:700;
+}
+
+.label{
+
+    font-size:12px;
+
+    margin-top:6px;
+}
+
+.subjects{
+    margin-top:16px;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+th{
+
+    background:var(--purple);
+
+    border:3px solid black;
+
+    padding:8px;
+}
+
+td{
+
+    border:3px solid black;
+
+    background:white;
+
+    padding:8px;
+
+    font-size:12px;
+}
+
+
+.semester-card{
+
+    margin-bottom:24px;
+
+    border:4px solid black;
+
+    border-radius:24px;
+
+    background:white;
+
+    overflow:hidden;
+
+    box-shadow:7px 7px 0 black;
+
+    transition:.15s;
+}
+
+.semester-card:hover{
+
+    transform:
+        translate(-2px,-2px);
+
+    box-shadow:
+        10px 10px 0 black;
+}
+
+.semester-header{
+    padding:14px 18px;
+
+    background:#d7b3ff;
+
+    font-weight:700;
+
+    font-size:22px;
+
+    font-family:"Fredoka",sans-serif;
+
+    border-bottom:4px solid black;
+}
+
+
+.subject{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    padding:14px;
+
+    min-height:72px;
+
+    border-bottom:3px solid black;
+}
+
+.subject:hover{
+    background:#fff8f0;
+}
+
+.subject:last-child{
+    border-bottom:none;
+}
+
+.subject-name{
+    flex:1;
+
+    line-height:1.15;
+
+    word-break:normal;
+
+    overflow-wrap:break-word;
+}
+
+.subject-code{
+    opacity:.65;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    margin-bottom:4px;
+}
+
+
+.grade-pill{
+
+    min-width:50px;
+
+    text-align:center;
+
+    padding:6px 12px;
+
+    border:3px solid black;
+
+    border-radius:999px;
+
+    font-weight:700;
+}
+
+
+.grade-S{
+    background:#ffb3d9;
+}
+
+.grade-Aplus{
+    background:#c9ffb3;
+}
+
+.grade-A{
+    background:#b3e5ff;
+}
+
+.grade-Bplus{
+    background:#ffe680;
+}
+
+.grade-B{
+    background:#ffd0a8;
+}
+
+.grade-C{
+    background:#e0e0e0;
+}
+
+.grade-F{
+    background:#ff9b9b;
+}
+
+
+.semester-meta{
+
+    display:flex;
+
+    gap:8px;
+
+    padding:12px;
+
+    background:#fff8f0;
+
+    border-bottom:3px solid black;
+}
+
+.meta-pill{
+
+    padding:6px 10px;
+
+    border:2px solid black;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    font-weight:600;
+}
+
+.vibe-banner{
+
+    background:#ffe680;
+
+    border:4px solid black;
+
+    border-radius:18px;
+
+    padding:12px;
+
+    text-align:center;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+    box-shadow:5px 5px 0 black;
+}
+
+
+#semesterContainer{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+
+</style>
+
+</head>
+<body>
+
+
+    
+
+<div class="hero">
+    🎓 KTU CGPA Calculator Extension
+</div>
+
+<div class="subtitle">
+    academic comeback loading 🚀
+</div>
+
+<div id="stats"></div>
+<div class="vibe-banner">
+    🚀 Academic Comeback Arc
+</div>
+
+<button id="download">
+    📥 Download CSV
+</button>
+
+<button id="exportVectorPdf">
+    📑 Academic PDF ( Recommended )
+</button>
+
+<div id="semesterContainer"></div>
+
+
+<button id="exportVectorPdf">
+    📑 Academic PDF ( Recommended )
+</button>
+
+<button id="exportPdf">
+    📄 Export PDF ( 100 MB+ - Not Recommended )
+</button>
+
+<script src="libs/dom-to-image-more.min.js"></script>
+<script src="pdf_vector.js"></script>
+<script src="constants.js"></script>
+<script src="libs/html2canvas.min.js"></script>
+<script src="libs/jspdf.umd.min.js"></script>
+<script src="pdf_old_quality.js"></script>
+<script src="popup.js"></script>
+
+</body>
+</html>

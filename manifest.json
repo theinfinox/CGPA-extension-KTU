@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "KTU CGPA Calculator",
+  "version": "1.0",
+  "description": "KTU Grade Extractor and CGPA Calculator",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://app.ktu.edu.in/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://app.ktu.edu.in/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
