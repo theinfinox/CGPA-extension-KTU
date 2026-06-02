@@ -1,26 +1,33 @@
 {
   "manifest_version": 3,
   "name": "KTU CGPA Calculator",
-  "version": "1.0",
-  "description": "KTU Grade Extractor and CGPA Calculator",
+  "version": "1.0.0",
+  "description": "KTU CGPA calculator with semester-wise SGPA, backlog tracking and PDF reports.",
   "permissions": [
-    "activeTab",
-    "storage"
-  ],
-  "host_permissions": [
-    "https://app.ktu.edu.in/*"
+    "storage",
+    "activeTab"
   ],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "48": "icons/48.png",
+      "128": "icons/120.png"
+    }
   },
   "content_scripts": [
     {
       "matches": [
-        "https://app.ktu.edu.in/*"
+        "*://app.ktu.edu.in/*"
       ],
       "js": [
         "content.js"
       ]
     }
-  ]
+  ],
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/120.png"
+  }
 }
