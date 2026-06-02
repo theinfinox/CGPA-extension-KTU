@@ -108,7 +108,7 @@ https://app.ktu.edu.in
 
 ## Step 2
 
-Open your Result page.
+Open Students Tab -> View Full Profile -> Curriculum
 
 ## Step 3
 
