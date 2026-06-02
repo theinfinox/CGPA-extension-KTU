@@ -1,4 +1,4 @@
-# 🎓 KTU CGPA Calculator & Data CSV, PDF Exporter - For those in stressed with backlogs - not the usual calculator
+# 🎓 KTU CGPA Calculator & Data CSV, PDF Exporter - For those in stress with backlogs - not the usual calculator
 
 A fun and powerful Chrome Extension for KTU students to instantly calculate CGPA, SGPA, backlog status, academic projections, and export professional reports directly from the KTU Student Portal.
 
