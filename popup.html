@@ -3,394 +3,331 @@
 <head>
 <meta charset="utf-8">
 <title>KTU CGPA</title>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
+:root {
+    /* Minimalist SaaS Color Palette */
+    --bg-body: #F4F5F7;
+    --bg-card: #FFFFFF;
+    
+    --text-main: #0F172A;
+    --text-secondary: #64748B;
+    --text-muted: #94A3B8;
+    
+    --border-light: #E2E8F0;
+    --border-hover: #CBD5E1;
+    
+    --primary-btn: #0F172A;
+    --primary-btn-hover: #334155;
+    
+    --secondary-btn: #FFFFFF;
+    --secondary-btn-hover: #F8FAFC;
 
-    --bg:#fff8f0;
+    /* Semantic Grade Colors (Soft background, dark text) */
+    --grade-s-bg: #DCFCE7;  --grade-s-txt: #166534;
+    --grade-ap-bg: #D1FAE5; --grade-ap-txt: #065F46;
+    --grade-a-bg: #E0F2FE;  --grade-a-txt: #075985;
+    --grade-bp-bg: #FEF3C7; --grade-bp-txt: #92400E;
+    --grade-b-bg: #FFEDD5;  --grade-b-txt: #9A3412;
+    --grade-c-bg: #F1F5F9;  --grade-c-txt: #334155;
+    --grade-f-bg: #FEE2E2;  --grade-f-txt: #991B1B;
 
-    --pink:#ffb3d9;
-    --purple:#d7b3ff;
-    --yellow:#ffe680;
-    --green:#c9ffb3;
-    --blue:#b3e5ff;
-
-    --black:#111;
+    --radius-lg: 16px;
+    --radius-md: 10px;
+    --radius-sm: 6px;
+    
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
 }
 
-body{
-    width:620px;
-    min-height:600px;
-
-    background:var(--bg);
-
-    font-family:"Space Grotesk",sans-serif;
-
-    padding:14px;
-
-    overflow-x:hidden;
-
-    margin:0;
-
-    scroll-behavior:smooth;
+body {
+    width: 620px;
+    min-height: 600px;
+    background: var(--bg-body);
+    font-family: "Inter", sans-serif;
+    color: var(--text-main);
+    padding: 20px;
+    margin: 0;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
 }
 
-.hero{
-
-background:
-linear-gradient(
-135deg,
-#ffb3d9,
-#d7b3ff
-);
-
-
-    border:4px solid var(--black);
-
-    border-radius:24px;
-
-    padding:16px;
-
-    font-size:24px;
-
-    font-weight:700;
-
-    text-align:center;
-
-    box-shadow:7px 7px 0 var(--black);
-
-    margin-bottom:8px;
-
-        font-family:"Fredoka",sans-serif;
-
+/* Header Section */
+.hero {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
 }
 
-.subtitle{
-
-    text-align:center;
-
-    font-size:12px;
-
-    margin-bottom:16px;
-
-    opacity:.8;
+.subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
 }
 
-button{
-
-    width:100%;
-
-    border:4px solid black;
-
-    background:var(--yellow);
-
-    border-radius:18px;
-
-    padding:12px;
-
-    font-weight:700;
-
-    margin-bottom:16px;
-
-    box-shadow:5px 5px 0 black;
-
-    cursor:pointer;
+/* Info Banner */
+.vibe-banner {
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    color: #1E3A8A;
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 500;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
 }
 
-button:hover{
-
-    transform:
-        translate(-2px,-2px);
-
-    box-shadow:
-        7px 7px 0 black;
+/* Buttons */
+button {
+    width: 100%;
+    background: var(--secondary-btn);
+    border: 1px solid var(--border-light);
+    color: var(--text-main);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
-button:active{
-    transform:translate(2px,2px);
-
-    box-shadow:2px 2px 0 black;
+button:hover {
+    background: var(--secondary-btn-hover);
+    border-color: var(--border-hover);
 }
 
-#stats{
-
-    margin-bottom:16px;
+button:active {
+    transform: translateY(1px);
 }
 
-.stats-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:12px;
+/* Make the primary download button stand out */
+#download {
+    background: var(--primary-btn);
+    color: #FFFFFF;
+    border: 1px solid var(--primary-btn);
 }
 
-.stat-card{
-
-    border:4px solid black;
-
-    border-radius:18px;
-
-    padding:12px;
-
-    text-align:center;
-
-    box-shadow:5px 5px 0 black;
+#download:hover {
+    background: var(--primary-btn-hover);
+    border-color: var(--primary-btn-hover);
 }
 
-.value{
-
-    font-size:22px;
-
-    font-weight:700;
+/* Stats Layout */
+#stats {
+    margin-bottom: 24px;
 }
 
-.label{
-
-    font-size:12px;
-
-    margin-top:6px;
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
 }
 
-.subjects{
-    margin-top:16px;
-
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-table{
-
-    width:100%;
-
-    border-collapse:collapse;
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
 }
 
-th{
-
-    background:var(--purple);
-
-    border:3px solid black;
-
-    padding:8px;
+.value {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.04em;
 }
 
-td{
-
-    border:3px solid black;
-
-    background:white;
-
-    padding:8px;
-
-    font-size:12px;
+.label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-
-.semester-card{
-
-    margin-bottom:24px;
-
-    border:4px solid black;
-
-    border-radius:24px;
-
-    background:white;
-
-    overflow:hidden;
-
-    box-shadow:7px 7px 0 black;
-
-    transition:.15s;
+/* Semesters */
+#semesterContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 8px;
 }
 
-.semester-card:hover{
-
-    transform:
-        translate(-2px,-2px);
-
-    box-shadow:
-        10px 10px 0 black;
+.semester-card {
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.2s ease;
 }
 
-.semester-header{
-    padding:14px 18px;
-
-    background:#d7b3ff;
-
-    font-weight:700;
-
-    font-size:22px;
-
-    font-family:"Fredoka",sans-serif;
-
-    border-bottom:4px solid black;
+.semester-card:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--border-hover);
 }
 
-
-.subject{
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-start;
-
-    gap:12px;
-
-    padding:14px;
-
-    min-height:72px;
-
-    border-bottom:3px solid black;
+.semester-header {
+    padding: 16px 20px;
+    background: #F8FAFC;
+    font-weight: 600;
+    font-size: 16px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-main);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.subject:hover{
-    background:#fff8f0;
+.semester-meta {
+    display: flex;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-light);
 }
 
-.subject:last-child{
-    border-bottom:none;
+.meta-pill {
+    padding: 4px 10px;
+    background: var(--bg-body);
+    border: 1px solid var(--border-light);
+    color: var(--text-secondary);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "JetBrains Mono", monospace;
 }
 
-.subject-name{
-    flex:1;
-
-    line-height:1.15;
-
-    word-break:normal;
-
-    overflow-wrap:break-word;
+.subjects {
+    margin-top: 0;
 }
 
-.subject-code{
-    opacity:.65;
-
-    font-size:11px;
-
-    font-weight:700;
-
-    margin-bottom:4px;
+.subject {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.15s ease;
 }
 
-
-.grade-pill{
-
-    min-width:50px;
-
-    text-align:center;
-
-    padding:6px 12px;
-
-    border:3px solid black;
-
-    border-radius:999px;
-
-    font-weight:700;
+.subject:last-child {
+    border-bottom: none;
 }
 
-
-.grade-S{
-    background:#ffb3d9;
+.subject:hover {
+    background: #F8FAFC;
 }
 
-.grade-Aplus{
-    background:#c9ffb3;
+.subject-name {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--text-main);
+    word-break: normal;
+    overflow-wrap: break-word;
 }
 
-.grade-A{
-    background:#b3e5ff;
+.subject-code {
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-family: "JetBrains Mono", monospace;
 }
 
-.grade-Bplus{
-    background:#ffe680;
+/* Beautiful SaaS Grade Badges */
+.grade-pill {
+    min-width: 48px;
+    text-align: center;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 14px;
+    font-family: "JetBrains Mono", monospace;
 }
 
-.grade-B{
-    background:#ffd0a8;
+.grade-S { background: var(--grade-s-bg); color: var(--grade-s-txt); }
+.grade-Aplus { background: var(--grade-ap-bg); color: var(--grade-ap-txt); }
+.grade-A { background: var(--grade-a-bg); color: var(--grade-a-txt); }
+.grade-Bplus { background: var(--grade-bp-bg); color: var(--grade-bp-txt); }
+.grade-B { background: var(--grade-b-bg); color: var(--grade-b-txt); }
+.grade-C { background: var(--grade-c-bg); color: var(--grade-c-txt); }
+.grade-F { background: var(--grade-f-bg); color: var(--grade-f-txt); }
+
+/* Table styling (if injected dynamically) */
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.grade-C{
-    background:#e0e0e0;
+th {
+    background: #F8FAFC;
+    border-bottom: 1px solid var(--border-light);
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: left;
+    text-transform: uppercase;
 }
 
-.grade-F{
-    background:#ff9b9b;
+td {
+    border-bottom: 1px solid var(--border-light);
+    background: var(--bg-card);
+    padding: 12px 16px;
+    font-size: 13px;
 }
-
-
-.semester-meta{
-
-    display:flex;
-
-    gap:8px;
-
-    padding:12px;
-
-    background:#fff8f0;
-
-    border-bottom:3px solid black;
-}
-
-.meta-pill{
-
-    padding:6px 10px;
-
-    border:2px solid black;
-
-    border-radius:999px;
-
-    font-size:12px;
-
-    font-weight:600;
-}
-
-.vibe-banner{
-
-    background:#ffe680;
-
-    border:4px solid black;
-
-    border-radius:18px;
-
-    padding:12px;
-
-    text-align:center;
-
-    font-weight:700;
-
-    margin-bottom:20px;
-
-    box-shadow:5px 5px 0 black;
-}
-
-
-#semesterContainer{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-}
-
 
 </style>
 
 </head>
 <body>
 
-
-    
-
 <div class="hero">
-    🎓 KTU CGPA Calculator Extension
+    🎓 KTU CGPA Calculator
 </div>
 
 <div class="subtitle">
 </div>
 
 <div id="stats"></div>
+
 <div class="vibe-banner">
-        Minimum, Maximum is intended for those who already have backlogs and are planning their comeback. For others, it's just fun stats! Ignore the "Minimum CGPA" if you don't have any backlogs.
+    Minimum and Maximum fields are intended for those who already have backlogs and are planning their comeback. For others, it's just fun stats! Ignore the "Minimum CGPA" if you don't have any backlogs.
 </div>
 
 <button id="download">
@@ -401,14 +338,11 @@ td{
     📑 Academic PDF ( Recommended - Selectable Text )
 </button>
 
-
-
 <div id="semesterContainer"></div>
 
-<button id="exportPdf">
+<button id="exportPdf" style="margin-top: 24px;">
     📄 Export PDF ( 100 MB+ - Not Recommended - HQ )
 </button>
-
 
 <script src="libs/dom-to-image-more.min.js"></script>
 <script src="pdf_vector.js"></script>
