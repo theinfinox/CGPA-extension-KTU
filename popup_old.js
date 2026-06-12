@@ -316,8 +316,6 @@ function calculateCGPA(data) {
 
     let minPoints = 0;
 
-    let maxDPoints = 0;
-    let maxCPoints = 0;
     let maxAPoints = 0;
     let maxAPlusPoints = 0;
     let maxSPoints = 0;
@@ -380,12 +378,6 @@ function calculateCGPA(data) {
             minPoints +=
                 5.5 * credit;
 
-            maxDPoints +=
-                6 * credit;
-
-            maxCPoints +=
-                6.5 * credit;
-
             maxAPoints +=
                 8.5 * credit;
 
@@ -398,12 +390,6 @@ function calculateCGPA(data) {
         } else {
 
             minPoints +=
-                gp * credit;
-
-            maxDPoints +=
-                gp * credit;
-
-            maxCPoints +=
                 gp * credit;
 
             maxAPoints +=
@@ -429,22 +415,6 @@ function calculateCGPA(data) {
         actualCredits
             ? (
                 minPoints /
-                actualCredits
-              ).toFixed(2)
-            : "0.00";
-
-    const maxD =
-        actualCredits
-            ? (
-                maxDPoints /
-                actualCredits
-              ).toFixed(2)
-            : "0.00";
-
-    const maxC =
-        actualCredits
-            ? (
-                maxCPoints /
                 actualCredits
               ).toFixed(2)
             : "0.00";
@@ -486,16 +456,6 @@ function calculateCGPA(data) {
     <div class="stat-card" style="background:#ffe680">
         <div class="value">${minimum}</div>
         <div class="label">😅 Minimum</div>
-    </div>
-
-    <div class="stat-card" style="background:#ffd0a8">
-        <div class="value">${maxD}</div>
-        <div class="label">📈 Max D</div>
-    </div>
-
-    <div class="stat-card" style="background:#e0e0e0">
-        <div class="value">${maxC}</div>
-        <div class="label">📊 Max C</div>
     </div>
 
     <div class="stat-card" style="background:#c9ffb3">
